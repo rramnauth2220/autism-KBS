@@ -2,13 +2,13 @@
 A Knowledge Based System serving as a screening measure to assess/affirm the diagnosis of autism spectrum disorders (ASD)
 __automatically generates rules__ from a .txt file; read more about the [automation](#automated-query-rules-for-specific-symptoms)
 
-View the data about the symptoms from the [symptoms documentation](https://github.com/wcyn/clips-horticulture-expert-system/blob/master/symptoms.md)
+```Link text files and background information here on AUTISM```
 
 ## How to run this program
 
 Clone the repo: 
 ```
-git clone https://github.com/wcyn/clips-horticulture-expert-system
+git clone https://github.com/rramnauth2220/autism-KBS/
 ```
 Run the [CLIPS Program](https://sourceforge.net/projects/clipsrules/): 
 
@@ -44,28 +44,28 @@ CLIPS> (run)
 
 
 ## How the weights work
-Each symptom has an assigned **certainty factor** (a number between `0` and `1`), which defines the **confidence level** of the prescence of the disease if the symptom is true. The certainty factors are merely opinions and are therefore not supported by statistical evidence. 
+Each symptom has an assigned **certainty factor** (a number between `0` and `1`), which defines the **confidence level** of the prescence of the disorder if the symptom is true. The certainty factors are merely opinions and are therefore not supported by statistical evidence. 
 
-For example, Rose Rust has four symptoms:  
+For example, Asperger Syndrome has four symptoms:  
 - yellow-patch-leaves (certainty factor: 0.4)
 - orange-spores-leaves (certainty factor: 0.5)
 - leaves-fall (certainty factor: 0.3)
 - plants-defoliated (certainty factor: 0.6)
 
 As such:
-- yellow-patch-leaves `=>` rose-rust (by 0.4)
-- orange-spores-leaves `=>` rose-rust (by 0.5)
-- leaves-fall `=>` rose-rust (by 0.3)
-- plants-defoliated `=>` rose-rust (by 0.6)
+- yellow-patch-leaves `=>` asperger (by 0.4)
+- orange-spores-leaves `=>` asperger (by 0.5)
+- leaves-fall `=>` asperger (by 0.3)
+- plants-defoliated `=>` asperger (by 0.6)
 
-If `yellow-patch-leaves` and `leaves-fall` are set to true. Then we shall obtain a confidence level of the rose flower having rose-rust through a number of calculations:  
-- `yellow-patch-leaves => not(rose-rust)` by a factor of 0.6 and `leaves-fall => not(rose-rust)` by a factor of 0.7
-- `yellow-patch-leaves + leaves-fall => not(rose-rust)` by a factor of `0.6 * 0.7` = `0.42`
-- Which, after inverting gives us: `yellow-patch-leaves + leaves-fall => rose-rust` by a factor of `1 - 0.42` = **`0.58`** 
+If `yellow-patch-leaves` and `leaves-fall` are set to true. Then we shall obtain a confidence level of the user having Aspergers through a number of calculations:  
+- `yellow-patch-leaves => not(asperger)` by a factor of 0.6 and `leaves-fall => not(asperger)` by a factor of 0.7
+- `yellow-patch-leaves + leaves-fall => not(asperger)` by a factor of `0.6 * 0.7` = `0.42`
+- Which, after inverting gives us: `yellow-patch-leaves + leaves-fall => asperger` by a factor of `1 - 0.42` = **`0.58`** 
 
-If we set the threshold to `0.7`, the diagnosis for rose-rust would fail.  
+If we set the threshold to `0.7`, the diagnosis for Aspergers would fail.  
 
-But if `orange-spores-leaves` symptom was also present, we would have a confidence factor of `(1 - (0.6 * 0.7 * 0.5)) = 1 - 0.21 = `**`0.79`**, and since `0.79 > 0.7`, the diagnosis for `rose-rust` would be true.
+But if `orange-spores-leaves` symptom was also present, we would have a confidence factor of `(1 - (0.6 * 0.7 * 0.5)) = 1 - 0.21 = `**`0.79`**, and since `0.79 > 0.7`, the diagnosis for `asperger` would be true.
 
 ## Template Definitions
 These provide a framework to hold the various groups of data items.
