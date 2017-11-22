@@ -74,7 +74,7 @@ __Description__: Defines the types of data describing the details of a symptom
 __Slots__:  
 -- `symptom-name` - Name of the Symptom  
 -- `plant-name` - The name of the plant  
--- `disease-or-pest` - What disease or pest the symptoms belongs to  
+-- `disorder` - What disorder the symptoms belongs to  
 -- `prescence` - If the symptom is present in the plant or not. Can be `yes` or `no`. Default is `no`  
 -- `weight` - The weight that the symptom contributes to the overal disease or pest
 
